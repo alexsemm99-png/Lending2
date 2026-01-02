@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Privacy Policy | Cornerstone Renovation LLC",
         description: "Privacy Policy for Cornerstone Renovation LLC. Learn how we collect, use, and protect your personal information.",
-        url: "https://cornerstonerenovation.com/privacy-policy",
+        url: "https://lending2-xi.vercel.app/privacy-policy",
         type: "website",
     },
     alternates: {
-        canonical: "https://cornerstonerenovation.com/privacy-policy",
+        canonical: "https://lending2-xi.vercel.app/privacy-policy",
     },
 };
 

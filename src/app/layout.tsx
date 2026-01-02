@@ -15,7 +15,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://cornerstonerenovation.com'),
+    metadataBase: new URL('https://lending2-xi.vercel.app'),
     title: {
         default: "Cornerstone Renovation LLC - Quality Home Renovation Services",
         template: "%s | Cornerstone Renovation LLC"
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://cornerstonerenovation.com",
+        url: "https://lending2-xi.vercel.app",
         siteName: "Cornerstone Renovation LLC",
         title: "Cornerstone Renovation LLC - Quality Home Renovation Services",
         description: "Professional home renovation and remodeling services in Apple Valley, MN. Kitchen remodeling, bathroom renovation, painting, siding, and handyman services.",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
         // bing: 'your-bing-verification-code',
     },
     alternates: {
-        canonical: "https://cornerstonerenovation.com",
+        canonical: "https://lending2-xi.vercel.app",
     },
     category: "Home Renovation Services",
     icons: {
@@ -103,9 +103,9 @@ export default function RootLayout({
         "@type": "LocalBusiness",
         "name": "Cornerstone Renovation LLC",
         "description": "Professional home renovation and remodeling services in Apple Valley, MN. Kitchen remodeling, bathroom renovation, painting, siding, and handyman services.",
-        "url": "https://cornerstonerenovation.com",
-        "logo": "https://cornerstonerenovation.com/logo.svg",
-        "image": "https://cornerstonerenovation.com/bg-image.jpeg",
+        "url": "https://lending2-xi.vercel.app",
+        "logo": "https://lending2-xi.vercel.app/logo.svg",
+        "image": "https://lending2-xi.vercel.app/bg-image.jpeg",
         "telephone": "(952) 465-8195",
         "email": "cornerstone_renovation@outlook.com",
         "priceRange": "$$",
