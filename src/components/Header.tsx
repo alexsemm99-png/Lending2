@@ -1,10 +1,16 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, forwardRef } from 'react'
 import { FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
 import BurgerMenu from './ui/BurgerMenu'
 
-export default function Header() {
+// ============================================
+// ИЗМЕНЕНИЕ: Header теперь использует forwardRef
+// ============================================
+// forwardRef позволяет передать ref из родительского компонента (page.tsx)
+// Это нужно для динамического позиционирования header под баннером
+// Без forwardRef мы не смогли бы получить доступ к DOM элементу header из page.tsx
+const Header = forwardRef<HTMLElement>((props, ref) => {
     // состояние для мобильного меню
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -21,10 +27,21 @@ export default function Header() {
         setIsMobileMenuOpen(false);
     };
 
-
+    // ============================================
+    // ИЗМЕНЕНИЕ: Header теперь позиционируется динамически
+    // ============================================
+    // ref={ref} - получаем ссылку на DOM элемент для изменения позиции через JS
+    // style={{ top: 'var(--banner-height, 48px)' }} - используем CSS переменную
+    // которая устанавливается в page.tsx через JavaScript
+    //
+    // Раньше было: top-[48px] sm:top-[56px] md:top-[64px] (фиксированные значения)
+    // Теперь: динамическое значение через CSS переменную --banner-height
+    //
+    // Это решает проблему белого зазора между баннером и header
+    // Значение по умолчанию: 48px (на случай, если JS не загрузился)
 
     return (
-        <header className="fixed top-0 left-0 z-20 w-full px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-2 bg-[#063A55]/70 backdrop-blur-md shadow-lg text-gray-300 transition-all duration-300 border-b border-[#063A55]/70">
+        <header ref={ref} className="fixed left-0 right-0 z-20 w-full px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-2 bg-[#063A55]/70 backdrop-blur-md shadow-lg text-gray-300 transition-all duration-300" style={{ top: 'var(--banner-height, 48px)' }}>
             {/* Desktop/Tablet Layout */}
             <div className='hidden md:flex justify-between items-center max-w-7xl mx-auto h-12 sm:h-14'>
                 {/* Logo and Company Name */}
@@ -138,4 +155,8 @@ export default function Header() {
 
         </header>
     )
-}
+});
+
+Header.displayName = 'Header';
+
+export default Header;
